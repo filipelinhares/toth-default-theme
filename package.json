@@ -1,6 +1,6 @@
 {
   "name": "toth-default-theme",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "",
   "main": "index.hbs",
   "scripts": {
@@ -13,5 +13,8 @@
     "gulp-concat": "^2.6.0",
     "gulp-cssnano": "^2.1.1",
     "gulp-uglify": "^1.5.3"
+  },
+  "dependencies": {
+    "lodash.kebabcase": "^4.0.0"
   }
 }
