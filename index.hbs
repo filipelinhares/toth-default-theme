@@ -4,76 +4,69 @@
 
     <title>toth - Style Guide</title>
 
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="toth.min.css">
 
     {{#each toth}}
-      <link rel="stylesheet" href="{{cssurl}}">
-      <script href="{{jsurl}}"></script>
+      {{#if cssurl}}
+        <link rel="stylesheet" href="{{cssurl}}">
+      {{/if}}
     {{/each}}
   </head>
-  <body>
-    <div class="toth-loader is-open">
-      <span class="toth-loader-text">
-        loading
-        <div class="toth-loader-spinner">
-          <span class="top-left"></span>
-          <span class="top-right"></span>
-          <span class="bot-left"></span>
-          <span class="bot-right"></span>
-        </div>
-      </span>
-    </div>
-    <div class="toth-body">
-      <aside class="toth-navbar">
-        <nav class="toth-navbar-menu">
-          <ul class="toth-navigation">
-          {{#each toth}}
-          <li class="toth-nagigation-item">
-            <a class="toth-navigation-link" href="#{{kebabCase name}}" title="{{name}}">{{name}}</a>
-          </li>
-          {{/each}}
-          </ul>
-        </nav>
-        <a class="toth-navbar-brand" href="https://github.com/filipelinhares/toth" target="_blank"><small>built with toth</small></a>
-      </aside>
-      <section class="toth-guide-body">
+  <body class="toth-body">
+    <aside class="toth-navbar">
+      <nav class="toth-navbar-menu">
+        <ul class="toth-navigation">
         {{#each toth}}
-          <section class="toth-section">
-            <h2 id="{{kebabCase name}}">{{name}}</h2>
-            <p>{{description}}</p>
-            {{#if this.colors}}
-              <div class="toth-color-grid">
-                {{#each this.colors}}
-                  <div class="toth-color-item">
-                    <div class="toth-color-palette" style="background-color: {{name}}">
-                      <span class="toth-color-text"><strong>{{name}}</strong> - {{variable}}</span>
-                    </div>
-                  </div>
-                {{/each}}
-              </div>
-            {{else}}
-            <h3>Modifiers</h3>
-            <dl>
-              {{#each state}}
-                <dt>{{name}}</dt>
-                <dd>{{description}}</dd>
-              {{/each}}
-            </dl>
-            <h3>Example</h3>
-            {{{markup.example}}}
-            <h3>Markup</h3>
-            <pre class="toth-code">
-                <button class="js-btn-clipboard toth-btn-clipboard">Copy</button>
-                <code class="html">
-{{markup.example}}
-                </code>
-                </pre>
-            {{/if}}
-          </section>
+        <li class="toth-nagigation-item">
+          <a class="toth-navigation-link" href="#{{kebabCase name}}" title="{{name}}">{{name}}</a>
+        </li>
         {{/each}}
-      </section>
-    </div>
+        </ul>
+      </nav>
+      <a class="toth-navbar-brand" href="https://github.com/filipelinhares/toth" target="_blank"><small>built with toth</small></a>
+    </aside>
+    <section class="toth-guide-body">
+      {{#each toth}}
+        <section class="toth-section">
+          <h2 id="{{kebabCase name}}">{{name}}</h2>
+          <p>{{description}}</p>
+          {{#if this.colors}}
+            <div class="toth-color-grid">
+              {{#each this.colors}}
+                <div class="toth-color-item">
+                  <div class="toth-color-palette" style="background-color: {{name}}">
+                    <span class="toth-color-text"><strong>{{name}}</strong> - {{variable}}</span>
+                  </div>
+                </div>
+              {{/each}}
+            </div>
+          {{else}}
+          <h3>Modifiers</h3>
+          <dl>
+            {{#each state}}
+              <dt>{{name}}</dt>
+              <dd>{{description}}</dd>
+            {{/each}}
+          </dl>
+          <h3>Example</h3>
+          {{{markup.example}}}
+          <h3>Markup</h3>
+          <pre class="toth-code">
+              <button class="js-btn-clipboard toth-btn-clipboard">Copy</button>
+              <code class="html">
+{{markup.example}}
+              </code>
+              </pre>
+          {{/if}}
+        </section>
+      {{/each}}
+    </section>
     <script src="toth.min.js"></script>
+    {{#each toth}}
+      {{#if jsurl}}
+        <script href="{{jsurl}}"></script>
+      {{/if}}
+    {{/each}}
   </body>
 </html>
